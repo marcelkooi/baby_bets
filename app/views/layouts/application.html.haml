@@ -1,0 +1,14 @@
+!!! 5
+%html
+  %head
+    %title Baby Bets
+    = stylesheet_link_tag 'application', media: 'all'
+    = csrf_meta_tags
+
+  %body
+    = render partial: 'navbar'
+    .container
+      = render partial: 'messages'
+      = yield
+
+  = javascript_include_tag :application
