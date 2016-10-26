@@ -11,28 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018035852) do
+ActiveRecord::Schema.define(version: 20161018005111) do
 
   create_table "bets", force: :cascade do |t|
-    t.string   "value"
-    t.integer  "property_id", null: false
-    t.integer  "user_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "differentials", force: :cascade do |t|
-    t.integer  "bet_id"
+    t.string   "value",      null: false
     t.decimal  "sum"
+    t.integer  "topic_id",   null: false
+    t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "differentials", ["bet_id"], name: "index_differentials_on_bet_id"
-
-  create_table "properties", force: :cascade do |t|
+  create_table "topics", force: :cascade do |t|
     t.string   "name"
     t.decimal  "multiplier",   null: false
+    t.string   "unit"
     t.string   "actual_value"
     t.string   "type",         null: false
     t.datetime "created_at",   null: false
@@ -42,6 +35,7 @@ ActiveRecord::Schema.define(version: 20161018035852) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "username",               default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

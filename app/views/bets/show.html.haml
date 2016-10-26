@@ -1,0 +1,25 @@
+.col-md-3
+  .panel.panel-default
+    .panel-heading
+      %h4= @bet.topic.name
+    .panel-body
+      %strong Username
+      %p= @bet.user.username
+      %strong Value
+      %p= @bet.value
+.col-md-8
+  .panel.panel-default
+    .panel-heading
+      %h4= "All Bets for #{@bet.topic.name}"
+    .panel-body
+      .row
+        %table.table.table-striped.table-hover
+          %thead
+            %tr.row
+              %th.col-md-3 User
+              %th.col-md-3 Value
+              %th.col-md-3 Amount Owed
+              %th.col-md-3 Actual Value
+          %tbody.row
+            = render partial: 'user_bets',
+              collection: @bet.topic.bets, as: :bet

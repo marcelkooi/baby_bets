@@ -1,0 +1,23 @@
+.col-md-3
+  .panel.panel-default
+    .panel-heading
+      %h4 Actions
+    .panel-body
+      - if current_user.admin?
+        .form-group
+          = link_to 'Create Topic', new_topic_path, class: 'btn btn-primary'
+.col-md-8
+  .panel.panel-default
+    .panel-heading
+      %h4 Topics
+    .panel-body
+      .row
+        %table.table.table-striped.table-hover
+          %thead
+            %tr.row
+              %th.col-md-4 Name
+              %th.col-md-4 Number of Bets
+              %th.col-md-4 Actions
+          %tbody.row
+            = render partial: 'topics/topic',
+              collection: @topics

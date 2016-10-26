@@ -1,0 +1,25 @@
+.col-md-6.col-md-offset-3
+  .panel.panel-default
+    .panel-heading
+      %h4= "#{params[:action].capitalize} Bet"
+    .panel-body
+      = form_for @bet do |f|
+        = hidden_field_tag 'bet[topic_id]', params[:topic_id]
+        - if @topic.type.demodulize == 'Characteristic'
+          .form-group
+            = f.label @topic.name
+            = f.text_field :value, class: 'form-control'
+
+        - if @topic.type.demodulize == 'Weight'
+          .form-group
+            = f.label 'Weight'
+            = f.number_field :value, class: 'form-control', id: 'weight'
+
+        - if @topic.type.demodulize == 'Date'
+          .form-group
+            = f.label 'Date of Birth'
+            = f.date_select :value, class: 'form-control', id: 'date'
+
+        .form-group
+          = f.submit class: 'btn btn-primary'
+          = link_to 'Cancel', :back, class: 'btn btn-default'

@@ -1,8 +1,9 @@
-class CreateProperties < ActiveRecord::Migration
+class CreateTopics < ActiveRecord::Migration
   def change
-    create_table :properties do |t|
+    create_table :topics do |t|
       t.string :name
       t.decimal :multiplier, null: false
+      t.string :unit
       t.string :actual_value
       t.string :type, null: false
       t.timestamps null: false

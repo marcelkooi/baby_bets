@@ -1,0 +1,31 @@
+.col-md-6.col-md-offset-3
+  .panel.panel-default
+    .panel-heading
+      %h4= "#{params[:action].capitalize} Topic"
+    .panel-body
+      = form_for @topic do |f|
+        .form-group
+          = f.label :name
+          = f.text_field :name, class: 'form-control'
+
+        .form-group
+          = f.label :type
+          = f.select(:type, options_for_select(topic_type_select_options, params[:type]), {}, class: 'form-control')
+
+        .form-group
+          = f.label 'multiplier ($)'
+          = f.number_field :multiplier, class: 'form-control'
+
+        .form-group
+          = f.label 'unit (if applicable)'
+          = f.text_field :unit, class: 'form-control'
+
+        .form-group
+          = f.label :actual_value
+          = f.text_field :actual_value, class: 'form-control'
+
+        .form-group
+          = f.submit class: 'btn btn-primary'
+          = link_to 'Cancel', topics_path, class: 'btn btn-default'
+
+

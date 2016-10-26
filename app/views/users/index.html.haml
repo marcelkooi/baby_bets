@@ -1,0 +1,14 @@
+.col-md-8.col-md-offset-2
+  .panel.panel-default
+    .panel-heading
+      %h4 Users
+    .panel-body
+      .row
+        %table.table.table-striped.table-hover
+          %thead
+            %tr.row
+              %th.col-md-4 Username
+              %th.col-md-4 Email Address
+              %th.col-md-4 Number of Bets
+          %tbody.row
+            = render @users

@@ -1,0 +1,8 @@
+%tr.row
+  %td= link_to bet.topic.name, topic_path(bet.topic)
+  %td= bet.value
+  %td= bet.differential
+  %td= bet.topic.actual_value
+  %td
+    = link_to 'Edit', edit_bet_path(bet), class: 'btn btn-primary'
+    = link_to 'Delete', bet_path(bet), method: :delete, data: { confirm: 'Are you sure you want to delete this bet?' }, class: 'btn btn-danger'

@@ -1,0 +1,37 @@
+.col-md-3
+  .panel.panel-default
+    .panel-heading
+      %h4= @topic.name
+    .panel-body
+      %strong Type
+      %p= @topic.type.demodulize
+      %strong Number of Bets
+      %p= @topic.bets.count
+      %strong Amount Owed if Wrong
+      - if @topic.unit
+        %p= "$%2.2f per #{@topic.unit}" % @topic.multiplier
+      - else
+        %p= "$%2.2f" % @topic.multiplier
+      %strong Actual Value
+      - if !@topic.actual_value.blank?
+        %p= @topic.actual_value
+      - else
+        %p TBD
+.col-md-8
+  .panel.panel-default
+    .panel-heading
+      %h4 
+        Bets
+        = link_to 'Make a Bet!', new_bet_path(topic_id: @topic.id), class: 'btn btn-success'
+    .panel-body
+      .row
+        %table.table.table-striped.table-hover
+          %thead
+            %tr.row
+              %th.col-md-2 Topic
+              %th.col-md-2 Value
+              %th.col-md-2 Differential
+              %th.col-md-2 Actual Value
+              %th.col-md-4 Actions
+          %tbody.row
+            = render @topic.bets

@@ -1,0 +1,7 @@
+%tr.row
+  %td= link_to topic.name, topic_path(topic)
+  %td= topic.bets.count
+  %td
+    - if current_user.admin?
+      = link_to 'Edit', edit_topic_path(topic), class: 'btn btn-primary'
+      = link_to 'Delete', topic_path(topic), method: :delete, data: { confirm: 'Are you sure you want to delete this topic?' }, class: 'btn btn-danger'

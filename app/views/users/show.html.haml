@@ -1,4 +1,11 @@
-.col-md-8.col-md-offset-2
+.col-md-3
+  .panel.panel-default
+    .panel-heading
+      %h4= @user.username
+    .panel-body
+      %strong Email Address
+      %p= @user.email
+.col-md-8
   .panel.panel-default
     .panel-heading
       %h4 Bets
@@ -13,4 +20,4 @@
               %th.col-md-2 Actual Value
               %th.col-md-4 Actions
           %tbody.row
-            = render @bets
+            = render @user.bets
