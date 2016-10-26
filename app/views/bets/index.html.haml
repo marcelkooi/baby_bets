@@ -1,4 +1,12 @@
-.col-md-8.col-md-offset-2
+- if current_user.admin?
+  .col-md-3
+    .panel.panel-default
+      .panel-heading
+        %h4 Actions
+      .panel-body
+        .form-group
+          = link_to 'Create Topic', new_topic_path, class: 'btn btn-primary'
+.col-md-8{ class: ('col-md-offset-2' unless current_user.admin?) }
   .panel.panel-default
     .panel-heading
       %h4 Bets
