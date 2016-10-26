@@ -47,6 +47,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'haml-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'pry-rails'
 
 group :development do
   gem 'better_errors'
@@ -57,7 +58,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rubocop'
   gem 'sqlite3'
