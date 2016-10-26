@@ -8,12 +8,12 @@
       %strong Number of Bets
       %p= @topic.bets.count
       %strong Amount Owed if Wrong
-      - if @topic.unit
+      - if @topic.unit.present?
         %p= "$%2.2f per #{@topic.unit}" % @topic.multiplier
       - else
         %p= "$%2.2f" % @topic.multiplier
       %strong Actual Value
-      - if !@topic.actual_value.blank?
+      - if @topic.actual_value.present?
         %p= @topic.actual_value
       - else
         %p TBD
