@@ -4,6 +4,6 @@
   %td= bet.topic.actual_value
   %td= bet.differential
   %td
-    - if bet.user_id == current_user.id
+    - if (bet.user_id == current_user.id) && (bet.created_at > 1.day.ago)
       = link_to 'Edit', edit_bet_path(bet), class: 'btn btn-primary'
       = link_to 'Delete', bet_path(bet), method: :delete, data: { confirm: 'Are you sure you want to delete this bet?' }, class: 'btn btn-danger'
