@@ -12,10 +12,9 @@ class BetsController < ApplicationController
   end
 
   def create
-    binding.pry
     if @bet.save
       redirect_to bet_path(@bet)
-      flash[:success] = 'Bet created successfully.'
+      flash[:notice] = 'Bet created successfully.'
     else
       render :new
       flash.now[:danger] = 'Bet could not be created.'
@@ -32,7 +31,7 @@ class BetsController < ApplicationController
   def update
     if @bet.update_attributes(bet_params)
       redirect_to bet_path(@bet)
-      render[:success] = 'Bet updated successfully.'
+      flash[:notice] = 'Bet updated successfully.'
     else
       render :edit
       flash.now[:danger] = 'Bet could not be updated.'

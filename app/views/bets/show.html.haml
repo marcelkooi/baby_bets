@@ -18,8 +18,8 @@
             %tr.row
               %th.col-md-3 User
               %th.col-md-3 Value
-              %th.col-md-3 Amount Owed
               %th.col-md-3 Actual Value
+              %th.col-md-3 Amount Owed
           %tbody.row
-            = render partial: 'user_bets',
+            = render partial: 'show_bets',
               collection: @bet.topic.bets, as: :bet

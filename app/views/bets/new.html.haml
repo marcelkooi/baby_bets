@@ -1,1 +1,9 @@
 = render 'form'
+
+- content_for :scripts do
+  :javascript
+
+    $(document).ready(function(){
+      debugger
+      $('#date').datepicker();
+    });

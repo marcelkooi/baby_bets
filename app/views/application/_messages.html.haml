@@ -1,5 +1,5 @@
 - flash.each do |flash_type, message|
-  .col-md-12
+  .col-md-11
     .alert{ class: "#{bootstrap_class_for(flash_type.to_sym)}", role: :alert }
       %strong= message
       %button.pull-right.close{ data: { dismiss: "alert" }} x

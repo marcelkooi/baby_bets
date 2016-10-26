@@ -46,6 +46,7 @@ end
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'haml-rails'
+gem 'bootstrap-datepicker-rails'
 
 group :development do
   gem 'better_errors'

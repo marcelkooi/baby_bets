@@ -17,10 +17,10 @@ class TopicsController < ApplicationController
   def create
     if @topic.save
       redirect_to topic_path(@topic)
-      flash[:success] = 'Topic saved successfully.'
+      flash[:notice] = 'Topic created successfully.'
     else
       render :new
-      flash.now[:danger] = 'Topic could not be saved.'
+      flash.now[:danger] = 'Topic could not be created.'
     end
   end
 
@@ -31,10 +31,10 @@ class TopicsController < ApplicationController
   def update
     if @topic.update_attributes(topic_params)
       redirect_to topic_path(@topic)
-      flash[:success] = 'Topic saved successfully.'
+      flash[:notice] = 'Topic updated successfully.'
     else
       render :new
-      flash.now[:danger] = 'Topic could not be saved.'
+      flash.now[:danger] = 'Topic could not be updated.'
     end
   end
 

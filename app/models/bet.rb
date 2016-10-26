@@ -16,6 +16,7 @@ class Bet < ActiveRecord::Base
   belongs_to :user
 
   def differential
-    '0'
+    '$0.00'
   end
+
 end
