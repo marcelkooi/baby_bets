@@ -1,7 +1,7 @@
 %tr.row
   %td= link_to bet.topic.name, topic_path(bet.topic)
   %td= link_to bet.user.username, user_path(bet.user)
-  %td= link_to bet.value, bet_path(bet)
+  %td= link_to bet.value.capitalize, bet_path(bet)
   %td= bet.topic.actual_value
   %td= bet.differential
   %td
