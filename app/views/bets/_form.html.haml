@@ -7,13 +7,17 @@
         = hidden_field_tag 'bet[topic_id]', params[:topic_id] || @bet.topic.id
         - if @topic.type.demodulize == 'Characteristic'
           .form-group
-            = f.label @topic.name
+            - if @topic.unit.present?
+              = f.label "#{@topic.name} (#{@topic.unit})"
+            - else
+              = f.label @topic.name
             = f.text_field :value, class: 'form-control'
 
         - if @topic.type.demodulize == 'Weight'
           .form-group
-            = f.label 'Weight'
+            = f.label 'Weight (oz)'
             = f.number_field :value, class: 'form-control', id: 'weight'
+            %strong.weight-value
 
         - if @topic.type.demodulize == 'Date'
           .form-group

@@ -3,7 +3,15 @@
 - content_for :scripts do
   :javascript
 
-    $(document).ready(function(){
-      debugger
-      $('#date').datepicker();
+    var poundWeight = "";
+
+    debugger
+
+    $('#weight').change(function() {
+      var pounds = Math.floor(this.value/16)
+      var ounces = this.value % 16
+
+      poundWeight = pounds + ' lbs' + ounces + ' oz' 
     });
+
+    $('.weight-value').text(poundWeight);
