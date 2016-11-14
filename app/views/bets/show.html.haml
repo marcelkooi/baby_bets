@@ -22,4 +22,4 @@
               %th.col-md-3 Amount Owed
           %tbody.row
             = render partial: 'show_bets',
-              collection: @bet.topic.bets, as: :bet
+              collection: @bet.topic.bets.order('user_id ASC'), as: :bet

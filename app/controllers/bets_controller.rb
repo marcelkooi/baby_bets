@@ -3,7 +3,7 @@ class BetsController < ApplicationController
   before_action :set_bet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bets = Bet.all
+    @bets = Bet.all.order('topic_id ASC, user_id ASC')
   end
 
   def new

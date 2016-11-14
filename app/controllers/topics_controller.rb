@@ -7,7 +7,7 @@ class TopicsController < ApplicationController
   end
 
   def index
-    @topics = Topic.all
+    @topics = Topic.all.order('name ASC')
   end
 
   def show
